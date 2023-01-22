@@ -4,6 +4,7 @@ WORKDIR /src
 COPY . ./
 
 RUN corepack enable
+RUN yarn cache clean
 RUN yarn install --immutable
 
 ENV FOXGLOVE_DISABLE_SIGN_IN=true
