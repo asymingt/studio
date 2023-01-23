@@ -49,6 +49,7 @@ import { Cameras } from "./renderables/Cameras";
 import { CoreSettings } from "./renderables/CoreSettings";
 import { FrameAxes, LayerSettingsTransform } from "./renderables/FrameAxes";
 import { Grids } from "./renderables/Grids";
+import { GridMaps } from "./renderables/GridMaps";
 import { Images } from "./renderables/Images";
 import { LaserScans } from "./renderables/LaserScans";
 import { Markers } from "./renderables/Markers";
@@ -473,6 +474,7 @@ export class Renderer extends EventEmitter<RendererEvents> {
     this.addSceneExtension(new Cameras(this));
     this.addSceneExtension(new FrameAxes(this));
     this.addSceneExtension(new Grids(this));
+    this.addSceneExtension(new GridMaps(this));
     this.addSceneExtension(new Images(this));
     this.addSceneExtension(new Markers(this));
     this.addSceneExtension(new FoxgloveSceneEntities(this));
