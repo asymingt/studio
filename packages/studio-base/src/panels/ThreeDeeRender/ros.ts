@@ -285,6 +285,41 @@ export type JointState = {
   effort: number[];
 };
 
+// Grid maps
+
+export type MultiArrayDimension = {
+  label: string;
+  size: number;
+  stride: number;
+};
+
+export type MultiArrayLayout = {
+  dim: MultiArrayDimension[];
+  data_offset: number;
+};
+
+export type Float32MultiArray = {
+  layout: MultiArrayLayout;
+  data: number[];
+};
+
+export type GridMapInfo = {
+  resolution: number;
+  length_x: number;
+  length_y: number;
+  pose: Pose;
+}
+
+export type GridMap = {
+  header: Header;
+  info: GridMapInfo;
+  layers: string[];
+  basic_layers: string[];
+  data: Float32MultiArray[];
+  outer_start_index: number;
+  inner_start_index: number;
+};
+
 export const TIME_ZERO = { sec: 0, nsec: 0 };
 
 export const TRANSFORM_STAMPED_DATATYPES = new Set<string>();
@@ -340,6 +375,9 @@ addRosDataType(POLYGON_STAMPED_DATATYPES, "geometry_msgs/PolygonStamped");
 
 export const JOINTSTATE_DATATYPES = new Set<string>();
 addRosDataType(JOINTSTATE_DATATYPES, "sensor_msgs/JointState");
+
+export const GRID_MAP_DATATYPES = new Set<string>();
+addRosDataType(GRID_MAP_DATATYPES, "grid_map_msgs/GridMap");
 
 // Expand a single ROS1 dataType into variations for ROS2 and protobufs,
 // then add them to the given output set

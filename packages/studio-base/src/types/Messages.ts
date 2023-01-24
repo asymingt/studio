@@ -350,3 +350,43 @@ export type JointState = Readonly<{
   velocity: FloatArray;
   effort: FloatArray;
 }>;
+
+// grid_map messages -- these make use of deprecated std_msgs messages for multi
+//                      dimensional array layouts.
+// see: https://github.com/ANYbotics/grid_map/tree/ros2/grid_map_msgs
+
+export type MultiArrayDimension = Readonly<{
+  label: string;
+  size: number;
+  stride: number;
+}>;
+
+export type MultiArrayLayout = Readonly<{
+  dim: MultiArrayDimension[];
+  data_offset: number;
+}>;
+
+export type Float32MultiArray = Readonly<{
+  layout: MultiArrayLayout[];
+  data: FloatArray;
+}>;
+
+export type GridMapInfo = Readonly<{
+  resolution: number;
+  length_x: number;
+  length_y: number;
+  pose: MutablePose;
+}>;
+
+export type GridMap = Readonly<
+StampedMessage & {
+  info: GridMapInfo;
+  layers: string[];
+  basic_layers: string[];
+  data: Float32MultiArray[];
+  outer_start_index: number;
+  inner_start_index: number;
+}
+>;
+
+
