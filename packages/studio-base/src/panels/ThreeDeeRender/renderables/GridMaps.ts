@@ -14,7 +14,7 @@
 //
 // msg.info.data.layers
 //  - [0].label = "column_index"   // "X" in the frame defined in header
-//  - [1].label = "row_index"      // "Z" in the frame defined in header
+//  - [1].label = "row_index"      // "Y" in the frame defined in header
 //
 // A lot of this code was copied and modified from the OccupancyGrid
 // renderable, and adapted to do the following:
